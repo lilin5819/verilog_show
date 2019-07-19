@@ -70,10 +70,14 @@ always @(posedge clk or negedge rst_n) begin
         rx_buf <= 8'h0;
         tx_buf <= 8'h0;
         rx_byte <= 8'h0;
+        tx_ready <= 1'b0;
+        rx_ready <= 1'b0;
     end
     else begin
         trans_cnt <= 4'd0;
+        SS <= SS;
         SCK <= 1'b1;
+        MOSI <= SS;
         rx_buf <= rx_buf;
         tx_buf <= tx_buf;
         tx_ready <= 1'b0;
